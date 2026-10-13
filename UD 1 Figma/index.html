@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="BookZone: descubre tu próxima lectura.">
+  <title>BookZone | Tu biblioteca digital</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- CABECERA: equivale al Frame de navegación de Figma -->
+  <header class="cabecera">
+    <div class="contenedor cabecera-interior">
+      <a class="logo" href="#inicio" aria-label="BookZone, ir al inicio">BookZone</a>
+      <nav aria-label="Navegación principal">
+        <ul class="menu">
+          <li><a href="#inicio">Inicio</a></li>
+          <li><a href="#catalogo">Catálogo</a></li>
+          <li><a href="#cuenta">Mi cuenta</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="inicio" class="contenedor">
+    <!-- HERO: títulos y buscador -->
+    <section class="bienvenida" aria-labelledby="titulo-principal">
+      <p class="etiqueta">TU BIBLIOTECA DIGITAL</p>
+      <h1 id="titulo-principal">Descubre tu próxima lectura</h1>
+      <p class="subtitulo">Explora nuestro catálogo y encuentra libros para cada ocasión.</p>
+
+      <!-- Formulario funcional sin JavaScript: filtra con el selector CSS :has() no es necesario;
+           la búsqueda redirige a la sección catálogo para que el ejercicio sea HTML/CSS puro. -->
+      <form class="buscador" action="#catalogo" method="get" role="search">
+        <label class="sr-only" for="buscar">Buscar libros, autores o géneros</label>
+        <input id="buscar" type="search" placeholder="Buscar libros, autores o géneros..." aria-label="Buscar libros, autores o géneros">
+        <button type="submit">Buscar</button>
+      </form>
+      <p class="nota-busqueda">Ejemplo didáctico: el buscador es visual. Para filtrar libros de verdad necesitaríamos JavaScript o un servidor.</p>
+    </section>
+
+    <!-- CATÁLOGO: grid de tarjetas, equivalente a componentes de Figma -->
+    <section id="catalogo" class="catalogo" aria-labelledby="titulo-catalogo">
+      <div class="cabecera-seccion">
+        <div>
+          <p class="etiqueta">SELECCIÓN BOOKZONE</p>
+          <h2 id="titulo-catalogo">Libros destacados</h2>
+        </div>
+        <span class="contador">6 libros</span>
+      </div>
+
+      <div class="rejilla-libros">
+        <article class="tarjeta">
+          <div class="portada portada-azul" aria-hidden="true"><span class="portada-icono">📖</span><span>LA AVENTURA<br>COMIENZA</span></div>
+          <div class="tarjeta-contenido"><span class="genero">Aventura</span><h3>La aventura comienza</h3><p class="autor">Laura Martín</p><div class="tarjeta-pie"><strong>19,95 €</strong><a class="boton-pequeno" href="#cuenta">Ver libro</a></div></div>
+        </article>
+        <article class="tarjeta">
+          <div class="portada portada-verde" aria-hidden="true"><span class="portada-icono">🌿</span><span>EL JARDÍN<br>SECRETO</span></div>
+          <div class="tarjeta-contenido"><span class="genero">Ficción</span><h3>El jardín secreto</h3><p class="autor">Clara Fernández</p><div class="tarjeta-pie"><strong>17,50 €</strong><a class="boton-pequeno" href="#cuenta">Ver libro</a></div></div>
+        </article>
+        <article class="tarjeta">
+          <div class="portada portada-morado" aria-hidden="true"><span class="portada-icono">✦</span><span>ESTRELLAS<br>LEJANAS</span></div>
+          <div class="tarjeta-contenido"><span class="genero">Ciencia ficción</span><h3>Estrellas lejanas</h3><p class="autor">Diego Romero</p><div class="tarjeta-pie"><strong>22,00 €</strong><a class="boton-pequeno" href="#cuenta">Ver libro</a></div></div>
+        </article>
+        <article class="tarjeta">
+          <div class="portada portada-terracota" aria-hidden="true"><span class="portada-icono">☀</span><span>DÍAS DE<br>VERANO</span></div>
+          <div class="tarjeta-contenido"><span class="genero">Romance</span><h3>Días de verano</h3><p class="autor">Paula Torres</p><div class="tarjeta-pie"><strong>16,90 €</strong><a class="boton-pequeno" href="#cuenta">Ver libro</a></div></div>
+        </article>
+        <article class="tarjeta">
+          <div class="portada portada-amarillo" aria-hidden="true"><span class="portada-icono">⚡</span><span>IDEAS QUE<br>CAMBIAN</span></div>
+          <div class="tarjeta-contenido"><span class="genero">Divulgación</span><h3>Ideas que cambian</h3><p class="autor">Marcos Vidal</p><div class="tarjeta-pie"><strong>21,50 €</strong><a class="boton-pequeno" href="#cuenta">Ver libro</a></div></div>
+        </article>
+        <article class="tarjeta">
+          <div class="portada portada-marino" aria-hidden="true"><span class="portada-icono">☾</span><span>LA ÚLTIMA<br>PISTA</span></div>
+          <div class="tarjeta-contenido"><span class="genero">Misterio</span><h3>La última pista</h3><p class="autor">Elena García</p><div class="tarjeta-pie"><strong>18,75 €</strong><a class="boton-pequeno" href="#cuenta">Ver libro</a></div></div>
+        </article>
+      </div>
+    </section>
+
+    <section class="cuenta" id="cuenta" aria-labelledby="titulo-cuenta">
+      <div><p class="etiqueta">FORMA PARTE DE BOOKZONE</p><h2 id="titulo-cuenta">Tu próxima historia te espera</h2><p>Guarda tus favoritos y descubre nuevas lecturas. Esta sección es una maqueta para ampliar en clase.</p></div>
+      <a class="boton-principal" href="#inicio">Volver al inicio</a>
+    </section>
+  </main>
+
+  <footer class="pie"><div class="contenedor"><p>© 2026 BookZone · Diseño de Interfaces Web</p><p>Proyecto educativo · HTML5 + CSS3</p></div></footer>
+</body>
+</html>
