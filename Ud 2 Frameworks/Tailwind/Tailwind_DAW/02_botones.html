@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Botones</title>
+  <!-- Tailwind CSS 4: CDN de aprendizaje, no para producción -->
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+<body class="bg-gray-100 min-h-screen">
+  <main class="p-8 max-w-3xl mx-auto">
+    <h1 class="text-2xl font-bold mb-6">Botones con Tailwind</h1>
+    <div class="flex flex-wrap gap-4">
+      <button class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-800">Guardar</button>
+      <button class="bg-green-600 text-white px-8 py-2 text-lg rounded-full hover:bg-green-700">Registrarse</button>
+      <button disabled class="bg-gray-300 text-gray-600 px-4 py-2 rounded-lg cursor-not-allowed">Deshabilitado</button>
+    </div>
+  </main>
+</body>
+</html>

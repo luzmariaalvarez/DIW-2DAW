@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flexbox</title>
+  <!-- Tailwind CSS 4: CDN de aprendizaje, no para producción -->
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+<body class="bg-gray-100 min-h-screen">
+  <!-- flex, items-center y justify-between reproducen propiedades CSS -->
+  <nav class="flex flex-col sm:flex-row items-center justify-between gap-4 bg-gray-900 text-white p-4">
+    <h1 class="text-xl font-bold">MiWeb</h1>
+    <div class="flex gap-6"><a href="#inicio" class="hover:text-blue-300">Inicio</a><a href="#servicios" class="hover:text-blue-300">Servicios</a><a href="#contacto" class="hover:text-blue-300">Contacto</a></div>
+  </nav>
+  <main id="inicio" class="p-8"><h2 class="text-2xl font-bold">Ejemplo de navegación flexible</h2></main>
+</body>
+</html>
