@@ -1,0 +1,214 @@
+
+/* Seleccionamos todos los elementos (*)
+   y sus pseudoelementos ::before y ::after.
+
+   box-sizing: border-box hace que el ancho
+   y el alto incluyan el padding y el borde. */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* Estilos generales del cuerpo de la página. */
+body {
+    /* Fuente del sistema operativo.
+       Si no está disponible, utiliza Arial. */
+    font-family: system-ui, Arial, sans-serif;
+    line-height: 1.55;
+    margin: 0;
+    padding: 26px;
+    color: #243746;
+    background: #f7fafc;
+}
+
+/* Selecciona los h1 que sean hijos directos
+   de body. El símbolo > significa hijo directo. */
+body>h1 {
+    color: #e16c18;
+    font-size: 1.8rem;
+}
+
+/* Permite que main reduzca su ancho
+   cuando se utiliza dentro de Flexbox o Grid. */
+main {
+    min-width: 0;
+}
+
+
+/* BEM significa:
+   B = BLOQUE
+   E = ELEMENTO
+   M = MODIFICADOR
+
+   Es una metodología para nombrar clases CSS
+   de forma clara, ordenada y reutilizable.
+
+   BLOQUE: componente independiente.
+   Ejemplo: .tarjeta
+
+   ELEMENTO: parte que pertenece a un bloque.
+   Se escribe con dos guiones bajos (__).
+   Ejemplo: .tarjeta__titulo
+
+   MODIFICADOR: variante de un bloque o elemento.
+   Se escribe con dos guiones (--).
+   Ejemplo: .tarjeta--destacada
+*/
+
+
+/* 1. CONTENEDOR DE PRODUCTOS
+
+   .productos agrupa las diferentes tarjetas.
+
+   Utilizamos FLEXBOX para colocarlas
+   horizontalmente y permitir que se adapten
+   al tamaño de la pantalla. */
+.productos {
+    /* Activa Flexbox.
+       Los elementos hijos se colocan en fila. */
+    display: flex;
+
+    /* Permite que las tarjetas bajen
+       a otra fila si no hay espacio suficiente. */
+    flex-wrap: wrap;
+
+    /* Espacio de 20 píxeles entre tarjetas,
+       tanto horizontal como verticalmente. */
+    gap: 20px;
+}
+
+
+/* 2. BLOQUE BEM: .tarjeta
+
+   Representa un componente independiente.
+
+   Cada producto tiene su propia tarjeta
+   con título, precio y botón.
+
+   Ejemplo HTML:
+   <article class="tarjeta">
+       ...
+   </article>
+*/
+.tarjeta {
+    /* flex: grow shrink basis
+
+       1 = puede crecer para ocupar espacio.
+       1 = puede reducirse si es necesario.
+       220px = tamaño base inicial de la tarjeta.
+
+       Equivale a:
+       flex-grow: 1;
+       flex-shrink: 1;
+       flex-basis: 220px;
+    */
+    flex: 1 1 220px;
+
+    /* Espacio interior de 20 píxeles. */
+    padding: 20px;
+
+    /* Borde gris de 1 píxel. */
+    border: 1px solid #ddd;
+
+    /* Redondea las esquinas de la tarjeta. */
+    border-radius: 12px;
+
+    /* Fondo blanco. */
+    background: white;
+}
+
+
+/* 3. ELEMENTO BEM: .tarjeta__titulo
+
+   El doble guion bajo (__) indica
+   que el título pertenece al bloque .tarjeta.
+
+   Ejemplo HTML:
+   <h2 class="tarjeta__titulo">Ordenador</h2>
+*/
+.tarjeta__titulo {
+    /* Color verde oscuro del título. */
+    color: #1b5e20;
+
+    /* Elimina el margen superior del título. */
+    margin-top: 0;
+}
+
+
+/* 4. ELEMENTO BEM: .tarjeta__precio
+
+   Representa el precio de un producto.
+
+   Es un elemento que pertenece
+   al bloque principal .tarjeta.
+
+   Ejemplo HTML:
+   <p class="tarjeta__precio">499 €</p>
+*/
+.tarjeta__precio {
+    /* Tamaño de letra 1,4 veces el tamaño raíz. */
+    font-size: 1.4rem;
+
+    /* Muestra el precio en negrita. */
+    font-weight: bold;
+}
+
+
+/* 5. ELEMENTO BEM: .tarjeta__boton
+
+   Representa el botón o enlace
+   de cada tarjeta de producto.
+
+   Ejemplo HTML:
+   <a href="#" class="tarjeta__boton">
+       Ver producto
+   </a>
+*/
+.tarjeta__boton {
+    /* Se comporta como un elemento en línea,
+       pero permite aplicar dimensiones y padding. */
+    display: inline-block;
+
+    /* 10px arriba y abajo.
+       15px a izquierda y derecha. */
+    padding: 10px 15px;
+
+    /* Fondo azul del botón. */
+    background: #1565c0;
+
+    /* Texto blanco. */
+    color: white;
+
+    /* Elimina el subrayado del enlace. */
+    text-decoration: none;
+
+    /* Redondea las esquinas del botón. */
+    border-radius: 7px;
+}
+
+
+/* 6. MODIFICADOR BEM: .tarjeta--destacada
+
+   Los dos guiones (--) indican
+   que es una VARIANTE del bloque .tarjeta.
+
+   Se utiliza cuando queremos que una tarjeta
+   tenga un aspecto diferente al resto.
+
+   Ejemplo HTML:
+   <article class="tarjeta tarjeta--destacada">
+
+   IMPORTANTE:
+   Utilizamos las dos clases.
+
+   .tarjeta aplica los estilos generales.
+   .tarjeta--destacada modifica algunos estilos.
+*/
+.tarjeta--destacada {
+    /* Borde naranja más grueso para destacar. */
+    border: 3px solid #ef6c00;
+
+    /* Fondo amarillo muy claro. */
+    background: #fff8e1;
+}

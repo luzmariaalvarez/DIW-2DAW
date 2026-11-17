@@ -1,0 +1,113 @@
+
+
+/* Seleccionamos todos los elementos (*),
+   sus pseudoelementos ::before y ::after.
+
+   box-sizing: border-box hace que el ancho
+   y alto incluyan el padding y el borde.
+   Facilita el cálculo de tamaños. */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* Estilos generales del cuerpo de la página. */
+body {
+
+    font-family: system-ui, Arial, sans-serif;
+
+    /* Altura de línea: 1,55 veces el tamaño de letra.
+       Mejora la legibilidad del texto. */
+    line-height: 1.55;
+
+    /* Elimina los márgenes exteriores del navegador. */
+    margin: 0;
+
+    /* Añade 26 píxeles de espacio interior. */
+    padding: 26px;
+
+    /* Color del texto. */
+    color: #243746;
+
+    /* Color de fondo de la página. */
+    background: #f7fafc;
+}
+
+/* Selecciona únicamente los h1 que son
+   hijos directos de body.
+
+   El símbolo > significa HIJO DIRECTO.
+   No selecciona un h1 dentro de main o section. */
+body > h1 {
+    color: #e16c18;     /* Color naranja del título. */
+    font-size: 1.8rem;   /* 1,8 veces el tamaño raíz. */
+}
+
+/* Permite que main pueda reducir su ancho
+   cuando se utiliza dentro de Flexbox o Grid,
+   evitando ciertos problemas de desbordamiento. */
+main {
+    min-width: 0;
+}
+
+
+
+/* 1. COMBINADOR HIJO DIRECTO ( > )
+
+   Selecciona los párrafos <p> que sean
+   hijos directos de un elemento con
+   la clase "noticias".
+
+   No afecta a párrafos dentro de un div. */
+.noticias > p {
+    color: #1565c0;      /* Texto azul. */
+    font-weight: bold;   /* Texto en negrita. */
+}
+
+
+/* 2. COMBINADOR DESCENDIENTE (ESPACIO)
+
+   Selecciona todos los párrafos <p> que
+   estén dentro de un div que, a su vez,
+   esté dentro de .noticias.
+
+   No importa si existen otros elementos
+   intermedios entre el div y el párrafo. */
+.noticias div p {
+    color: #2e7d32;      /* Texto verde. */
+}
+
+
+/* 3. COMBINADOR HERMANO ADYACENTE ( + )
+
+   Selecciona únicamente el primer párrafo
+   que aparezca INMEDIATAMENTE después
+   de un h3 dentro de .noticias.
+
+   Ambos deben compartir el mismo padre.
+
+   Si hay otro elemento entre h3 y p,
+   el selector no se aplica. */
+.noticias h3 + p {
+    background: #ffe0b2; /* Fondo naranja claro. */
+}
+
+
+/* 4. COMBINADOR HERMANOS GENERALES ( ~ )
+
+   Selecciona todos los párrafos que aparezcan
+   DESPUÉS de un h3 y compartan su mismo padre.
+
+   No tienen que estar inmediatamente después.
+   Puede haber otros elementos entre ellos.
+
+   Los párrafos anteriores al h3 no se seleccionan. */
+.noticias h3 ~ p {
+    /* Línea naranja de 4 píxeles a la izquierda. */
+    border-left: 4px solid #f57c00;
+
+    /* Espacio entre la línea y el texto. */
+    padding-left: 10px;
+}
+

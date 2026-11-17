@@ -1,0 +1,210 @@
+
+
+/* Seleccionamos todos los elementos (*)
+   y sus pseudoelementos ::before y ::after.
+
+   border-box hace que el ancho y el alto
+   incluyan el padding y el borde. */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* Estilos generales del cuerpo de la página. */
+body {
+
+    font-family: system-ui, Arial, sans-serif;
+
+    /* Espaciado entre líneas.
+       1.55 significa 1,55 veces el tamaño de letra. */
+    line-height: 1.55;
+
+    /* Elimina los márgenes exteriores. */
+    margin: 0;
+
+    /* Añade 26 píxeles de espacio interior. */
+    padding: 26px;
+    color: #243746;
+    background: #f7fafc;
+}
+
+/* Selecciona los h1 que sean hijos directos
+   de body. El símbolo > significa hijo directo. */
+body > h1 {
+    color: #e16c18;    
+    font-size: 1.8rem;   
+}
+
+/* Permite que main pueda reducir su ancho
+   cuando se utiliza dentro de Flexbox o Grid. */
+main {
+    min-width: 0;
+}
+
+
+
+/* 1. SELECTOR DE ATRIBUTO EXACTO [atributo="valor"]
+
+   Selecciona únicamente los elementos input
+   cuyo atributo type sea exactamente "email".
+
+   No afecta a input de tipo text, password, etc. */
+input[type="email"] {
+    /* Borde de 2 píxeles, continuo y gris azulado. */
+    border: 2px solid #78909c;
+
+    /* Espacio interior de 9 píxeles. */
+    padding: 9px;
+}
+
+
+/* 2. SELECTOR DE ATRIBUTO QUE TERMINA EN ($=)
+
+   Selecciona los enlaces cuyo href
+   termina exactamente en ".pdf".
+
+   Ejemplo:
+   <a href="tema1.pdf">Descargar</a>
+
+   ::after es un PSEUDOELEMENTO que permite
+   añadir contenido después del texto del enlace. */
+a[href$=".pdf"]::after {
+    /* Añade este texto después del enlace. */
+    content: " (documento PDF)";
+
+    /* Color morado para el texto añadido. */
+    color: #9c27b0;
+}
+
+
+/* 3. SELECTOR DE ATRIBUTO QUE EMPIEZA POR (^=)
+
+   Selecciona los enlaces cuyo atributo href
+   comienza por "https".
+
+   Ejemplo:
+   <a href="https://www.google.com">Google</a>
+
+   No selecciona enlaces que empiecen por http
+   sin la letra s. */
+a[href^="https"] {
+    /* Muestra el texto en negrita. */
+    font-weight: bold;
+}
+
+
+
+/* 4. PSEUDOCLASE :hover Y :not()
+
+   :hover se activa cuando el usuario
+   coloca el ratón encima del botón.
+
+   :not(:disabled) excluye los botones
+   que estén deshabilitados.
+
+   Por tanto, solo se aplica el efecto
+   a botones que NO estén deshabilitados. */
+button:hover:not(:disabled) {
+    /* Cambia el fondo a azul. */
+    background: #1565c0;
+
+    /* Cambia el texto a blanco. */
+    color: white;
+}
+
+
+/* 5. PSEUDOCLASE :focus-visible
+
+   Se aplica cuando un elemento recibe el foco
+   y el navegador determina que debe mostrar
+   un indicador visible, normalmente al navegar
+   mediante el teclado con la tecla TAB.
+
+   Es importante para la ACCESIBILIDAD. */
+:focus-visible {
+    /* Contorno naranja de 3 píxeles. */
+    outline: 3px solid #ef6c00;
+
+    /* Separa el contorno 3 píxeles del elemento. */
+    outline-offset: 3px;
+}
+
+
+/* 6. PSEUDOCLASES :invalid Y :placeholder-shown
+
+   input[type="email"] selecciona campos email.
+
+   :invalid detecta cuando el valor
+   no cumple las reglas de validación HTML.
+
+   :not(:placeholder-shown) evita aplicar
+   el estilo mientras se muestra el placeholder.
+
+   Ejemplo:
+   <input type="email" placeholder="Tu correo">
+
+   Si escribimos "hola" y el campo es inválido,
+   el borde se vuelve rojo.
+
+   IMPORTANTE: si el campo no tiene placeholder,
+   esta técnica no evita el estilo inicial. */
+input[type="email"]:invalid:not(:placeholder-shown) {
+    /* Cambia el borde a rojo. */
+    border-color: #c62828;
+}
+
+
+/* 7. PSEUDOCLASE :checked
+
+   Selecciona casillas checkbox que estén marcadas.
+
+   También puede utilizarse con botones radio.
+
+   accent-color modifica el color de los controles
+   nativos compatibles del formulario. */
+input[type="checkbox"]:checked {
+    /* Color verde para la casilla marcada. */
+    accent-color: #2e7d32;
+}
+
+
+/* 8. PSEUDOCLASE :nth-child(even)
+
+   Selecciona los elementos li que ocupan
+   una posición PAR entre sus hermanos.
+
+   even significa PAR: 2, 4, 6, 8...
+
+   Ejemplo:
+   <ul>
+       <li>HTML</li>  Primera posición
+       <li>CSS</li>   Segunda posición
+       <li>JS</li>    Tercera posición
+       <li>PHP</li>   Cuarta posición
+   </ul>
+
+   Se colorearán CSS y PHP. */
+li:nth-child(even) {
+    /* Fondo verde claro. */
+    background: #e8f5e9;
+}
+
+
+/* 9. PSEUDOCLASE :disabled
+
+   Selecciona botones que tengan el atributo
+   disabled en HTML.
+
+   Ejemplo:
+   <button disabled>Enviar</button>
+
+   El usuario no podrá pulsar ese botón. */
+button:disabled {
+    /* Reduce la opacidad al 45%.
+       El botón se verá más apagado. */
+    opacity: 0.45;
+
+    /* Muestra el cursor de acción no permitida. */
+    cursor: not-allowed;
+}

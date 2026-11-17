@@ -1,0 +1,169 @@
+
+/* Seleccionamos todos los elementos (*)
+   y sus pseudoelementos ::before y ::after.
+
+   box-sizing: border-box hace que el ancho
+   y el alto incluyan el padding y el borde. */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* Estilos generales del cuerpo de la página. */
+body {
+    font-family: system-ui, Arial, sans-serif;
+    line-height: 1.55;
+    margin: 0;
+    padding: 26px;
+    color: #243746;
+    background: #f7fafc;
+}
+
+/* Selecciona los h1 que sean hijos directos
+   de body. El símbolo > significa hijo directo. */
+body>h1 {
+    color: #e16c18;
+    font-size: 1.8rem;
+}
+
+/* Permite que main reduzca su ancho
+   cuando se utiliza dentro de Flexbox o Grid. */
+main {
+    min-width: 0;
+}
+
+
+/* 1. PSEUDOELEMENTO ::before
+
+   Permite insertar contenido visual ANTES
+   del contenido de un elemento HTML.
+
+   En este caso, selecciona los h2
+   que estén dentro de la clase .cita.
+
+   Ejemplo:
+   <div class="cita">
+       <h2>Frase destacada</h2>
+   </div>
+
+   Resultado visual:
+   ✦ Frase destacada
+
+   No necesitamos escribir la estrella
+   directamente en el HTML. */
+.cita h2::before {
+    /* Inserta una estrella antes del título.
+       El espacio evita que quede pegada. */
+    content: "✦ ";
+
+    /* Color naranja de la estrella. */
+    color: #ef6c00;
+}
+
+
+/* 2. PSEUDOELEMENTO ::after
+
+   Permite insertar contenido visual DESPUÉS
+   del contenido de un elemento HTML.
+
+   Se aplica a los mismos h2 de .cita.
+
+   Resultado visual:
+   ✦ Frase destacada ✦
+
+   ::before y ::after pueden utilizarse
+   simultáneamente en un mismo elemento. */
+.cita h2::after {
+    /* Inserta una estrella después del título. */
+    content: " ✦";
+
+    /* Color naranja de la estrella. */
+    color: #ef6c00;
+}
+
+
+/* 3. PSEUDOELEMENTO ::placeholder
+
+   Permite modificar el aspecto del texto
+   de ayuda que aparece dentro de un input.
+
+   Ejemplo:
+   <input type="text"
+          placeholder="Escribe tu nombre">
+
+   El placeholder es una sugerencia,
+   NO es un valor introducido por el usuario. */
+input::placeholder {
+    /* Color gris azulado del texto de ayuda. */
+    color: #607d8b;
+
+    /* Muestra el texto en cursiva. */
+    font-style: italic;
+}
+
+
+/* 4. PSEUDOELEMENTO ::selection
+
+   Permite cambiar el aspecto del texto
+   cuando el usuario lo SELECCIONA.
+
+   Por ejemplo, al arrastrar el ratón
+   sobre una frase de la página.
+
+   Normalmente, el navegador muestra
+   la selección con un fondo azul.
+
+   Aquí personalizamos esos colores. */
+::selection {
+    /* Fondo naranja claro del texto seleccionado. */
+    background: #ffcc80;
+
+    /* Color oscuro del texto seleccionado. */
+    color: #222;
+}
+
+
+/* 5. PSEUDOELEMENTO ::first-letter
+
+   Permite aplicar estilos a la PRIMERA LETRA
+   del texto de un elemento compatible.
+
+   En este caso, se aplica a los elementos
+   que tengan la clase .aviso.
+
+   Ejemplo:
+   <p class="aviso">
+       Importante: guarda tus cambios.
+   </p>
+
+   La letra "I" aparecerá más grande
+   y en negrita. */
+.aviso::first-letter {
+    /* Primera letra 1,8 veces más grande
+       que el tamaño de fuente del elemento. */
+    font-size: 1.8em;
+
+    /* Primera letra en negrita. */
+    font-weight: bold;
+}
+
+
+/* 6. ESTILOS DE LA CLASE .aviso
+
+   Esta regla NO utiliza un pseudoelemento.
+
+   Aplica estilos al elemento completo
+   que tenga la clase .aviso.
+
+   El mensaje importante debe escribirse
+   en el HTML, no generarse con CSS. */
+.aviso {
+    /* Añade una línea naranja de 4 píxeles
+       en el lado izquierdo del aviso. */
+    border-left: 4px solid #ef6c00;
+
+    /* Añade 12 píxeles de espacio interior
+       entre el contenido y los bordes. */
+    padding: 12px;
+}

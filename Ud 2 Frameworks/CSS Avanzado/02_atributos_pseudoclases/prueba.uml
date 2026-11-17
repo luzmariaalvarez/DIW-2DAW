@@ -1,0 +1,38 @@
+@startuml
+title Biblioteca - Clases y préstamos
+
+
+class Usuario {
+ - nombre : String
+ - email : String
+ + Usuario(nombre : String, email : String)
+ + getNombre() : String
+ + getEmail() : String
+}
+
+
+class Libro {
+ - titulo : String
+ - autor : String
+ - disponible : boolean
+ + Libro(titulo : String, autor : String)
+ + prestar() : void
+ + devolver() : void
+ + getTitulo() : String
+ + getAutor() : String
+ + isDisponible() : boolean
+}
+class Prestamo {
+ - usuario : Usuario
+ - libro : Libro
+ - fechaInicio : LocalDate
+ - fechaDevolucion : LocalDate
+ - activo : boolean
+ + Prestamo(usuario : Usuario, libro : Libro)
+ + finalizarPrestamo() : void
+ + mostrarInformacion() : void
+ + isActivo() : boolean
+}
+Usuario "1" -- "0..*" Prestamo : realiza
+Libro "1" -- "0..*" Prestamo : registra
+@enduml
