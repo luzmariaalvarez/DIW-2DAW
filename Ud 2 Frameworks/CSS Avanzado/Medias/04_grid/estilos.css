@@ -1,0 +1,33 @@
+/* Tarjetas con Grid */
+body {
+    font-family: Arial, sans-serif;
+    padding: 25px;
+}
+
+/* Grid crea tres columnas iguales: 1fr es una fracción del espacio disponible */
+.cursos {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.curso {
+    background: lightblue;
+    padding: 20px;
+    text-align: center;
+    border-radius: 8px;
+}
+
+/* Tablet: dos columnas */
+@media (max-width: 900px) {
+    .cursos {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Móvil: una columna. Esta regla va después de la de tablet. */
+@media (max-width: 600px) {
+    .cursos {
+        grid-template-columns: 1fr;
+    }
+}

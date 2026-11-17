@@ -1,0 +1,20 @@
+/* min-width y max-width */
+body {
+    font-family: Arial, sans-serif;
+    padding: 25px;
+    background: white;
+}
+
+/* max-width: desde 0 hasta 600 px inclusive */
+@media (max-width: 600px) {
+    body {
+        background: #fff3a3;
+    }
+}
+
+/* min-width: desde 1000 px en adelante */
+@media (min-width: 1000px) {
+    body {
+        background: #c9f5d3;
+    }
+}

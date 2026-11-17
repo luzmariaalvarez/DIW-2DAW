@@ -1,0 +1,13 @@
+/* Cambiar color de fondo */
+body {
+    font-family: Arial, sans-serif;
+    padding: 25px;
+    background: lightblue;
+}
+
+/* En pantallas de 600 px o menos cambiamos el fondo */
+@media (max-width: 600px) {
+    body {
+        background: lightpink;
+    }
+}

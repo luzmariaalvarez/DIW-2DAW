@@ -1,0 +1,25 @@
+/* Menú con Flexbox */
+body {
+    font-family: Arial, sans-serif;
+    padding: 25px;
+}
+
+/* Flexbox coloca los elementos en fila por defecto */
+.menu {
+    display: flex;
+    gap: 10px;
+}
+
+.menu a {
+    padding: 15px;
+    background: royalblue;
+    color: white;
+    text-decoration: none;
+}
+
+/* En móvil los enlaces se apilan verticalmente */
+@media (max-width: 600px) {
+    .menu {
+        flex-direction: column;
+    }
+}

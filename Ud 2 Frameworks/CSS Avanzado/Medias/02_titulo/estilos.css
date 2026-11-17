@@ -1,0 +1,17 @@
+/* Tamaño de título */
+body {
+    font-family: Arial, sans-serif;
+    padding: 25px;
+}
+
+/* Tamaño inicial para pantallas amplias */
+h1 {
+    font-size: 40px;
+}
+
+/* Solo cambiamos la propiedad que necesitamos */
+@media (max-width: 600px) {
+    h1 {
+        font-size: 24px;
+    }
+}

@@ -1,0 +1,32 @@
+/* Diseño mobile first */
+body {
+    font-family: Arial, sans-serif;
+    padding: 25px;
+}
+
+/* MOBILE FIRST: primero escribimos estilos para móvil (una columna) */
+.productos {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 15px;
+}
+
+.producto {
+    padding: 20px;
+    background: #dbeafe;
+    border-radius: 8px;
+}
+
+/* Cuando haya espacio suficiente, pasamos a dos columnas */
+@media (min-width: 601px) {
+    .productos {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* En pantallas grandes mostramos tres columnas */
+@media (min-width: 1000px) {
+    .productos {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
