@@ -1,0 +1,186 @@
+/* 1. ESTILOS GENERALES */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    color: #163b45;
+    background: #f6f8fa;
+    /* Columna que ocupa al menos toda la pantalla. */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+main {
+    flex: 1;
+}
+
+/* Ocupa el espacio libre y empuja el pie hacia abajo. */
+h1,
+h2,
+p {
+    margin: 0;
+}
+
+/* 2. CABECERA: eje principal horizontal. */
+.cabecera {
+    display: flex;
+    justify-content: space-between;
+    /* Separa marca y menú. */
+    align-items: center;
+    /* Alineación vertical. */
+    flex-wrap: wrap;
+    gap: 18px;
+    padding: 22px 6%;
+    background: #163b45;
+    color: white;
+}
+
+.cabecera a {
+    color: white;
+    text-decoration: none;
+}
+
+.marca {
+    font-size: 26px;
+    font-weight: bold;
+}
+
+nav {
+    display: flex;
+    /* Flexbox anidado dentro de la cabecera. */
+    gap: 24px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+/* 3. PRESENTACIÓN: ahora el eje principal es vertical. */
+.presentacion {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* En columna, centra horizontalmente. */
+    gap: 12px;
+    text-align: center;
+    padding: 48px 20px;
+    background: #e5f2ee;
+}
+
+.presentacion h1 {
+    font-size: 34px;
+}
+
+.presentacion p {
+    color: #526c70;
+}
+
+/* 4. CONTENEDOR DE TARJETAS */
+.destinos {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    /* Igual altura para las tarjetas de una misma fila. */
+    flex-wrap: wrap;
+    /* Si no caben, pasan a la siguiente fila. */
+    gap: 20px;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 32px 20px;
+}
+
+/* 5. TARJETA: hija del contenedor y contenedor de sus propios elementos. */
+.tarjeta {
+    /* flex: crecimiento, reducción y tamaño inicial. */
+    flex: 1 1 260px;
+    max-width: 340px;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    background: white;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 4px 16px #163b4515;
+}
+
+.tarjeta img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    display: block;
+}
+
+.contenido {
+    flex: 1;
+    /* Rellena el espacio restante de la tarjeta. */
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 20px;
+}
+
+.contenido h2 {
+    font-size: 21px;
+}
+
+.contenido p {
+    color: #526c70;
+    line-height: 1.5;
+}
+
+.precio {
+    font-size: 25px;
+}
+
+button {
+    margin-top: auto;
+    /* Absorbe el espacio libre y alinea los botones abajo. */
+    border: 0;
+    border-radius: 7px;
+    padding: 12px;
+    background: #168475;
+    color: white;
+    font: inherit;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #11675c;
+}
+
+/* 6. PIE DE PÁGINA */
+footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 24px 16px;
+    background: #163b45;
+    color: white;
+}
+
+/* 7. RESPONSIVE: flex-wrap ya adapta las tarjetas automáticamente.
+   La media query mejora la cabecera en pantallas pequeñas. */
+@media (max-width: 600px) {
+    .cabecera {
+        flex-direction: column;
+    }
+
+    nav {
+        gap: 16px;
+    }
+
+    .presentacion h1 {
+        font-size: 28px;
+    }
+
+    .tarjeta {
+        flex-basis: 100%;
+    }
+}

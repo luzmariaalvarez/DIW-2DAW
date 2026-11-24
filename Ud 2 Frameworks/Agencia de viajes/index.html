@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <!-- Permite adaptar la página a dispositivos móviles. -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TravelBox | Escapadas</title>
+    <link rel="stylesheet" href="estilos.css">
+</head>
+
+<body>
+    <!-- Contenedor flex: marca a la izquierda y menú a la derecha. -->
+    <header class="cabecera" id="inicio">
+        <a class="marca" href="#inicio">✈ TravelBox</a>
+        <nav aria-label="Menú principal">
+            <a href="#inicio">Inicio</a>
+            <a href="#destinos">Destinos</a>
+            <a href="#contacto">Contacto</a>
+        </nav>
+    </header>
+    <main>
+        <!-- Flexbox en columna: título y texto centrados. -->
+        <section class="presentacion">
+            <h1>Tu próxima aventura</h1>
+            <p>Descubre lugares increíbles y desconecta de la rutina.</p>
+        </section>
+        <!-- Contenedor flex exterior: organiza las tarjetas en filas. -->
+        <section class="destinos" id="destinos" aria-label="Escapadas disponibles">
+            <!-- Cada tarjeta es un elemento flex y también un contenedor flex. -->
+            <article class="tarjeta">
+                <img src="imagenes/picos.svg" alt="Ilustración de montañas de los Picos de Europa">
+                <div class="contenido">
+                    <h2>Picos de Europa</h2>
+                    <p>Naturaleza y montaña.</p>
+                    <strong class="precio">120 €</strong>
+                    <button type="button">Reservar</button>
+                </div>
+            </article>
+            <article class="tarjeta">
+                <img src="imagenes/santander.svg" alt="Ilustración de una playa de Santander">
+                <div class="contenido">
+                    <h2>Santander</h2>
+                    <p>Mar y tranquilidad. Disfruta de un paseo junto a la costa.</p>
+                    <strong class="precio">95 €</strong>
+                    <button type="button">Reservar</button>
+                </div>
+            </article>
+            <article class="tarjeta">
+                <img src="imagenes/liebana.svg" alt="Ilustración de un pueblo de Liébana entre montañas">
+                <div class="contenido">
+                    <h2>Liébana</h2>
+                    <p>Tradición y gastronomía.</p>
+                    <strong class="precio">85 €</strong>
+                    <button type="button">Reservar</button>
+                </div>
+            </article>
+        </section>
+    </main>
+    <!-- Los botones son visuales: no se implementa un sistema de reservas. -->
+    <footer id="contacto">
+        <p>© 2026 TravelBox · Viaja, descubre y disfruta</p>
+    </footer>
+</body>
+
+</html>
